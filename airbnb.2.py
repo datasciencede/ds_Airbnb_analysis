@@ -8,7 +8,7 @@ import warnings
 
 warnings.filterwarnings('ignore')
 
-st.set_page_config(page_title="AirBnb-Analysis", page_icon=":bar_chart:", layout="wide")
+st.set_page_config(page_title="AirBnb-Analysis by MOHIT.R!!!", page_icon=":bar_chart:", layout="wide")
 
 st.title(":bar_chart:   AirBnb-Analysis")
 st.markdown('<style>div.block-container{padding-top:1rem;}</style>', unsafe_allow_html=True)
@@ -44,7 +44,8 @@ if SELECT == "Explore Data":
     st.write(filename)
     df = pd.read_csv(filename, encoding="ISO-8859-1")
  else:
-    st.write("Please Choose A File Above For Visualization")
+    os.chdir(r"/Users/mohitr/Desktop/untitled folder 6")
+    df = pd.read_csv("/Users/mohitr/Downloads/Airbnb NYC 2019.csv", encoding="ISO-8859-1")
 
  st.sidebar.header("Choose your filter: ")
 
@@ -140,13 +141,28 @@ if SELECT == "Explore Data":
 
  st.map(df)
 
+# ----------------------Contact---------------#
 
+if SELECT == "Contact":
+    Name = (f'{"Name :"}  {"MOHIT.R"}')
+    mail = (f'{"Mail :"}  {"mr8574190@gmail.com"}')
+    description = "An Aspiring DATA-SCIENTIST..!"
+    social_media = {
+        "GITHUB": "https://github.com/datasciencede",
+        "LINKEDIN": "www.linkedin.com/in/mohit-mohit-843a7727b"}
 
-col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2)
+    
 
- 
-        
-with col2:
-    col2.subheader("NAME : mohit")
-    col2.subheader("EMAIL: mr8574190gmail.com")
-    col2.subheader("BATCH : D93d94d95")
+    with col2:
+        st.header('Airbnb Analysis')
+        st.subheader(
+            "This project aims to analyze Airbnb data using MongoDB Atlas, perform data cleaning and preparation, develop interactive geospatial visualizations, and create dynamic plots to gain insights into pricing variations, availability patterns, and location-based trends.")
+        st.write("---")
+        st.subheader(Name)
+        st.subheader(mail)
+
+    st.write("#")
+    cols = st.columns(len(social_media))
+    for index, (platform, link) in enumerate(social_media.items()):
+        cols[index].write(f"[{platform}]({link})")
